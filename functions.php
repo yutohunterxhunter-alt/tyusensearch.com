@@ -254,11 +254,16 @@ add_action('lottery_auto_delete_hook', function() {
 
 // ========================================
 // X（Twitter）自動投稿
+// wp-config.php に以下を追記してください:
+//   define('X_API_KEY',            '...');
+//   define('X_API_SECRET',         '...');
+//   define('X_ACCESS_TOKEN',       '...');
+//   define('X_ACCESS_TOKEN_SECRET','...');
 // ========================================
-define('X_API_KEY',            'JhWtd82kp4tGLF5kWDiNtXTtT');
-define('X_API_SECRET',         '59iV2Yz8MvbXW1YFaXnLmiW8rNoQDEG7oq90CM8wZNVpvfpMTU');
-define('X_ACCESS_TOKEN',       '2024458874536005632-5hTsObT1AYSMHJDZzgmPbOnbWCKkZQ');
-define('X_ACCESS_TOKEN_SECRET','X1FdBLRse8Grjqif4pBpZXuFgpVToFIa6ILMbiAMRNoN0');
+if (!defined('X_API_KEY'))             define('X_API_KEY',            '');
+if (!defined('X_API_SECRET'))          define('X_API_SECRET',         '');
+if (!defined('X_ACCESS_TOKEN'))        define('X_ACCESS_TOKEN',       '');
+if (!defined('X_ACCESS_TOKEN_SECRET')) define('X_ACCESS_TOKEN_SECRET','');
 
 function tyusensearch_post_to_x($text, $reply_to_id = null) {
     $url    = 'https://api.twitter.com/2/tweets';
